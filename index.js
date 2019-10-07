@@ -13,12 +13,7 @@ module.exports = function(source) {
         options = {};
     }
 
-    // default option
-    if (!('stringify' in options)) {
-        options.stringify = true;
-    }
-
     jsonData = po2json.parse(source, options);
 
-    return jsonData;
+    return 'module.exports = ' + JSON.stringify(jsonData);
 }
